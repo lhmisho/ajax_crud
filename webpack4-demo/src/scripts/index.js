@@ -14,6 +14,37 @@ window.onload = function(){
             })
         })
         .catch(err => console.log(err))
+
+    let saveButton = document.querySelector("#saveButton")
+    saveButton.addEventListener('click', function(){
+        createContact()
+    })
+}
+
+// create contact
+
+function createContact(){
+
+    let nameField   = document.querySelector("#name")
+    let phoneField  = document.querySelector("#phone")
+    let emailField  = document.querySelector("#email")
+
+    let contact = {
+        name    : nameField.value,
+        phone   : phoneField.value,
+        email   : emailField.value
+    }
+    let tBody = document.querySelector("#tBody")
+
+    axios.post(URL, contact)
+        .then(res => {
+            createTDElement(contact, tBody)
+
+            nameField.value     = ''
+            phoneField.value    = ''
+            emailField.value    = ''
+        })
+        .catch(err => console.log(err))
 }
 
 // creating a TR element and appending it to it's parent
