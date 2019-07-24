@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <title>Twinkle Cats - Webpack 4 Crash Course</title>
+</head>
+<body>
+    <h1>Welcome Catians</h1>
+    <div class="container">
+        <h3 class="text-center">My ajax tutorial</h3>
+        <div class="row p-5">
+            <div class="col">
+                <input type="text" placeholder="Name" id="name">
+            </div>
+            <div class="col">
+                <input type="text" placeholder="Email" id="email">
+            </div>
+            <div class="col">
+                <input type="text" placeholder="Phone" id="phone">
+            </div>
+            <div class="col">
+                <button id="saveButton" class="btn btn-primary">Send</button>
+            </div>
+        </div>
+        <div class="row p-5">
+            <table class="table table-bordered">
+                <thead>
+                  <tr>
+                    <th scope="col">Name</th>
+                    <th scope="col">Email</th>
+                    <th scope="col">Phone</th>
+                    <th scope="col">action</th>
+                  </tr>
+                </thead>
+                <tbody id="tBody">
+                  <!-- element are coming from index.js -->
+                </tbody>
+              </table>
+        </div>
+    </div>
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.5/dist/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+</body>
+</html>
