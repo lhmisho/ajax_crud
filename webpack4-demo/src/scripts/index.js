@@ -69,7 +69,33 @@ function createTDElement(contact, parentElement){
     editBtn.className = 'btn btn-warning'
     editBtn.innerHTML = 'Edit'
     editBtn.addEventListener('click', function(){
-        console.log('hello i am edit button')
+        let mainModal = $("#contactEditModal")
+        mainModal.modal('toggle')
+
+        let editName    = document.querySelector("#edit-name")
+        let editPhone   = document.querySelector("#edit-phone")
+        let editEmail   = document.querySelector("#edit-email")
+
+        editName.value = contact.name
+        editEmail.value = contact.email ? contact.email : 'N/A'
+        editPhone.value = contact.phone ? contact.phone : 'N/A'
+
+        let updateButton = document.querySelector("#updateBtn")
+        updateButton.addEventListener('click', function(){
+            axios.put(`${URL}/${contact.id}`, {
+                name    : editName.value,
+                phone   : editPhone.value,
+                email   : editEmail.value 
+            })
+            .then(res => {
+                tdName.innerHTML    = res.data.name
+                tdEmail.innerHTML   = res.data.email
+                tdPhone.innerHTML   = res.data.phone
+                
+                mainModal.modal('hide')
+            })
+            .catch(err => console.log(err))
+        })
     })
     tdAction.appendChild(editBtn)
 
