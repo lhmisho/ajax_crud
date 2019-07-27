@@ -77,7 +77,11 @@ function createTDElement(contact, parentElement){
     deleteBtn.className = 'btn btn-danger'
     deleteBtn.innerHTML = 'Delete'
     deleteBtn.addEventListener('click', function(){
-        console.log('hello i am delete button')
+        axios.delete(`${URL}/${contact.id}`)
+                .then(res => {
+                    parentElement.removeChild(TR)
+                })
+                .catch(err => console.log(err))
     })
     tdAction.appendChild(deleteBtn)
 
